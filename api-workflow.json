@@ -1,1 +1,92 @@
-{"163":{"inputs":{"image":""},"class_type":"LoadImage","_meta":{"title":"LoadImage"}},"164":{"inputs":{"ckpt_name":"Qwen-Rapid-AIO-NSFW-v14.1.safetensors"},"class_type":"CheckpointLoaderSimple","_meta":{"title":"CheckpointLoaderSimple"}},"165":{"inputs":{"clip":["164",1],"vae":["164",2],"image1":["163",0],"prompt":""},"class_type":"TextEncodeQwenImageEditPlus","_meta":{"title":"TextEncodeQwenImageEditPlus Input Prompt"}},"166":{"inputs":{"model":["164",0],"positive":["165",0],"negative":["167",0],"latent_image":["176",0],"seed":0,"steps":20,"cfg":8,"sampler_name":"euler","scheduler":"simple","denoise":1},"class_type":"KSampler","_meta":{"title":"KSampler"}},"167":{"inputs":{"clip":["164",1],"vae":["164",2],"prompt":""},"class_type":"TextEncodeQwenImageEditPlus","_meta":{"title":"TextEncodeQwenImageEditPlus Negative"}},"173":{"inputs":{"samples":["166",0],"vae":["164",2]},"class_type":"VAEDecode","_meta":{"title":"VAEDecode"}},"175":{"inputs":{"images":["173",0]},"class_type":"PreviewImage","_meta":{"title":"PreviewImage"}},"176":{"inputs":{"width":512,"height":512,"batch_size":1},"class_type":"EmptyLatentImage","_meta":{"title":"EmptyLatentImage"}}}
+{
+  "163": {
+    "inputs": {
+      "image": "input.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "LoadImage"
+    }
+  },
+  "164": {
+    "inputs": {
+      "ckpt_name": "Qwen-Rapid-AIO-NSFW-v14.1.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "CheckpointLoaderSimple"
+    }
+  },
+  "165": {
+    "inputs": {
+      "clip": ["164", 1],
+      "vae": ["164", 2],
+      "image1": ["163", 0],
+      "prompt": "cinematic realistic portrait, ultra detailed"
+    },
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "_meta": {
+      "title": "TextEncodeQwenImageEditPlus Input Prompt"
+    }
+  },
+  "166": {
+    "inputs": {
+      "model": ["164", 0],
+      "positive": ["165", 0],
+      "negative": ["167", 0],
+      "latent_image": ["176", 0],
+      "seed": 0,
+      "steps": 4,
+      "cfg": 1,
+      "sampler_name": "sa_solver",
+      "scheduler": "beta",
+      "denoise": 1
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "167": {
+    "inputs": {
+      "clip": ["164", 1],
+      "vae": ["164", 2],
+      "prompt": ""
+    },
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "_meta": {
+      "title": "TextEncodeQwenImageEditPlus Negative"
+    }
+  },
+  "173": {
+    "inputs": {
+      "samples": ["166", 0],
+      "vae": ["164", 2]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAEDecode"
+    }
+  },
+  "175": {
+    "inputs": {
+      "filename_prefix": "runpod_output",
+      "images": ["173", 0]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "SaveImage"
+    }
+  },
+  "176": {
+    "inputs": {
+      "width": 768,
+      "height": 768,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "EmptyLatentImage"
+    }
+  }
+}
