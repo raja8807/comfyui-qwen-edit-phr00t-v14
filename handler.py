@@ -223,6 +223,7 @@ def handler(job: Dict[str, Any]) -> Dict[str, Any]:
     # Write input image to ComfyUI input dir
     _, input_dir = find_comfy_dirs()
     filename = f"rp_{uuid.uuid4().hex}.png"
+    print(filename)
     img_path = os.path.join(input_dir, filename)
 
     img_bytes = decode_base64_image(image_b64)
@@ -235,6 +236,8 @@ def handler(job: Dict[str, Any]) -> Dict[str, Any]:
     if "inputs" not in workflow["163"]:
         workflow["163"]["inputs"] = {}
     workflow["163"]["inputs"]["image"] = filename
+    
+    print("WORKFLOW IMAGE:", workflow["163"]["inputs"]["image"])
 
     # Optional: override prompt on node 165 if present
     if prompt_override and "165" in workflow and isinstance(workflow["165"], dict):
