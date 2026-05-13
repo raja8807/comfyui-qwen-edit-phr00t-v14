@@ -1,11 +1,11 @@
 {
   "163": {
     "inputs": {
-      "url": ""
+      "image": "data:image/png;base64,..."
     },
-    "class_type": "LoadImageFromURL",
+    "class_type": "ETN_LoadImageBase64",
     "_meta": {
-      "title": "LoadImageFromURL"
+      "title": "ETN_LoadImageBase64"
     }
   },
   "164": {
